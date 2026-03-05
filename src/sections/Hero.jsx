@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FaS } from "react-icons/fa6";
 
 const roles = ["Designer", "Developer", "Creative"];
 
@@ -24,6 +25,8 @@ const Hero = () => {
 
             } else {
                 
+                const time = setTimeout(() => setTyping(false), 1500);
+                return () => clearTimeout(time);
             }
         }
     })
