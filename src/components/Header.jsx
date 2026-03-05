@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export default function Header() {
-    const [active, setActive] = useState("HOME");
+const Header = () => {
+    const [active, setActive] = useState();
 
     return (
         <>
@@ -23,7 +23,7 @@ export default function Header() {
 
             <nav
                 className="flex top-0 items-center justify-between px-50 py-5 w-full"
-                style={{ background: "linear-gradient(135deg, #0a0f1e 0%, #0d1530 50%, #071020 100%)" }}>
+                style={{ background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)" }}>
             
                 {/* Logo */}
                  <div className="flex items-center gap-1">
@@ -61,3 +61,6 @@ export default function Header() {
         </>
     );
 }
+
+
+export default Header;
