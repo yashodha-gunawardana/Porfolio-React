@@ -84,9 +84,23 @@ const Hero = () => {
                         </span>
                     </div>
 
+                    {/* main heading */}
+                    <div className="fade-up-3">
+                        <h1 
+                            className="text-5xl font-black text-white leading-tight"
+                            style={{ fontWeight: 900 }}>
+
+                            HAY! I'M YASHODA
+                        </h1>
+
+                    </div>
+
                 </div>
 
             </div>
         </>
     )
 }
+
+
+export default Hero;
