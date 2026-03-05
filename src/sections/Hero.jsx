@@ -71,6 +71,21 @@ const Hero = () => {
                     background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)"
                 }}>
 
+                
+                {/* left side */}
+                <div className="flex flex-col gap-5 z-10 max-w-lg">
+
+                    <div className="fade-up-2 w-fit">
+                        <span 
+                            className="px-3 py-1 rounded text-ts font-semibold tracking-widest text-white"
+                            style={{ background: "#0084FF"}}>
+                            
+                            YASHODA GUNAWARDHANA
+                        </span>
+                    </div>
+
+                </div>
+
             </div>
         </>
     )
