@@ -24,8 +24,18 @@ const Hero = () => {
                 return () => clearTimeout(time);
 
             } else {
-                
                 const time = setTimeout(() => setTyping(false), 1500);
+                return () => clearTimeout(time);
+            }
+
+        } else {
+            if (charIndex > 0) {
+                const time = setTimeout(() => {
+                    setDisplayed(current.slice(0, charIndex - 1));
+                    setCharIndex(charIndex -1);
+
+                }, 60);
+
                 return () => clearTimeout(time);
             }
         }
