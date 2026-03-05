@@ -93,6 +93,14 @@ const Hero = () => {
                             HAY! I'M YASHODA
                         </h1>
 
+                        <h2
+                            className="text-5xl font-black leading-tight mt-1"
+                            style={{ color: "0084FF", fontWeight: 900 }}>
+
+                            I'M A {displayed}
+
+                            <span className="cursor" style={{ color: "0084FF" }}>|</span>
+                        </h2>
                     </div>
 
                 </div>
