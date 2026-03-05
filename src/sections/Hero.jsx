@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const roles = ["Designer", "Developer", "Creative"];
 
@@ -7,4 +7,24 @@ const Hero = () => {
     const [displayed, setDisplayed] = useState("");
     const [typing, setTyping] = useState(true);
     const [charIndex, setCharIndex] = useState(0);
+
+
+    useEffect(() => {
+        const current = roles[roleIndex];
+
+        if (typing) {
+            if (charIndex < current.length) {
+                const time = setTimeout(() => {
+                    setDisplayed(current.slice(0, charIndex + 1));
+                    setCharIndex(charIndex + 1);
+
+                }, 100);
+
+                return () => clearTimeout(time);
+
+            } else {
+                
+            }
+        }
+    })
 }
