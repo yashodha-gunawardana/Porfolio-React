@@ -65,7 +65,7 @@ const Hero = () => {
             </style>
 
             <div 
-                className="relative flex items-center justify-between px-10 pt-8 pb-0 overflow-hidden"
+                className="relative flex items-center justify-between px-50 pt-8 pb-0 overflow-hidden"
                 style={{
                     minHeight: "100vh",
                     background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)"
@@ -77,10 +77,10 @@ const Hero = () => {
 
                     <div className="fade-up-2 w-fit">
                         <span 
-                            className="px-3 py-1 rounded text-ts font-semibold tracking-widest text-white"
-                            style={{ background: "#0084FF"}}>
+                            className="px-2 rounded text-ts font-semibold tracking-widest text-white"
+                            style={{ background: "#0084ff56"}}>
                             
-                            YASHODA GUNAWARDHANA
+                            FRONTEND  DEVELOPER
                         </span>
                     </div>
 
@@ -95,13 +95,22 @@ const Hero = () => {
 
                         <h2
                             className="text-5xl font-black leading-tight mt-1"
-                            style={{ color: "0084FF", fontWeight: 900 }}>
+                            style={{ color: "#0084FF", fontWeight: 900 }}>
 
                             I'M A {displayed}
 
-                            <span className="cursor" style={{ color: "0084FF" }}>|</span>
+                            <span className="cursor" style={{ color: "#0084FF" }}>|</span>
                         </h2>
                     </div>
+
+                    <p
+                        className="fade-up-4 text-sm leading-relaxed"
+                        style={{ color: "#A0AEC0", maxWidth: "380px" }}>
+
+                        I build modern, interactive websites that look great, perform flawlessly, and tell your story. 
+                        I love turning ideas into digital experiences that delight users and make an impact.
+
+                    </p>
 
                 </div>
 
