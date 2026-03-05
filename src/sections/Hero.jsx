@@ -37,6 +37,10 @@ const Hero = () => {
                 }, 60);
 
                 return () => clearTimeout(time);
+
+            } else {
+                setRoleIndex((roleIndex + 1) % roles.length);
+                setTyping(true);
             }
         }
     })
