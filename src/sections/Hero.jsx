@@ -197,7 +197,7 @@ const Hero = () => {
                     className="orb-1 absolute z-20" 
                     style={{
                         width: "52px", height: "52px", borderRadius: "50%",
-                        top: "8%", left: "12%",
+                        top: "10%", left: "12%",
                         background: "radial-gradient(circle at 35% 30%, #2a4a70 0%, #0a1422 100%)",
                         boxShadow: "0 8px 32px rgba(10,20,40,0.8), inset 0 1px 2px rgba(255,255,255,0.12)",
                     }} 
