@@ -3,6 +3,14 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 
 const About = () => {
+    
+    const stats = [
+        { number: "10+", label: "Projects Done" },
+        { number: "2+", label: "Years Learning" },
+        { number: "5+", label: "Technologies" },
+    ];
+
+
     return (
         <section id="about"
             className="w-full flex items-start justify-between px-50 py-50"
