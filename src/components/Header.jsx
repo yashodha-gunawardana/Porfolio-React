@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Header = () => {
-    const [active, setActive] = useState();
+    const [active, setActive] = useState("HOME");
 
     return (
         <>
@@ -22,7 +22,7 @@ const Header = () => {
             </style>
 
             <nav
-                className="fixed flex top-0 left-0 items-center justify-between px-50 py-5 w-full z-50"
+                className="fixed flex top-0 left-0 items-center justify-between px-50 py-8 w-full z-50"
                 style={{ background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)" }}>
             
                 {/* Logo */}
@@ -37,7 +37,7 @@ const Header = () => {
                     {["HOME", "ABOUT", "EDUCATION", "PROJECTS", "CONTACT"].map((link) => (
                         <a
                             key={link}
-                            href="#"
+                            href={`#${link.toLowerCase()}`}
                             onClick={() => setActive(link)}
                             className={`nav-link text-xs font-semibold tracking-widest transition-colors duration-200 ${
                                 active === link ? "active text-white" : "text-white hover:text-white"
