@@ -6,10 +6,12 @@ const Header = () => {
     return (
         <>
             <style>{`
-                .nav-link { position: relative; }
+                @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+
+                .nav-link { position: relative; font-family: 'Space Grotesk', sans-serif; }
                 .nav-link::after {
                 content: '';
-                position: absolute; bottom: -2px; left: 0;
+                position: absolute; bottom: -6px; left: 0;
                 width: 0; height: 2px;
                 background: #0084FF;
                 transition: width 0.3s ease;
@@ -20,7 +22,7 @@ const Header = () => {
             </style>
 
             <nav
-                className="flex top-0 items-center justify-between px-50 py-5 w-full"
+                className="fixed flex top-0 left-0 items-center justify-between px-50 py-5 w-full z-50"
                 style={{ background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)" }}>
             
                 {/* Logo */}
@@ -31,7 +33,7 @@ const Header = () => {
                 </div>
 
                 {/* Nav Links + Button */}
-                <div className="flex items-center gap-8">
+                <div className="flex items-center gap-12">
                     {["HOME", "ABOUT", "EDUCATION", "PROJECTS", "CONTACT"].map((link) => (
                         <a
                             key={link}

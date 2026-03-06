@@ -4,5 +4,13 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['"Roboto Slab"', 'serif'],
+        heading: ['"Space Grotesk"', 'sans-serif'],
+      },
+    },
+  },
   plugins: [],
 }
