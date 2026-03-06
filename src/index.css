@@ -93,3 +93,32 @@ h1, h2, h3, h4, h5, h6 {
 .fade-up-5 { 
     animation: fadeUp 0.7s 0.55s ease both; 
 }
+
+/* right side slide in */
+.fade-in { 
+    animation: slideInRight 1s 0.3s ease both; 
+}
+
+/* cursor */
+.cursor { 
+    animation: blink 1s step-end infinite; 
+}
+
+/* orbs */
+.orb-1 { 
+    animation: float 5s ease-in-out infinite; 
+}
+.orb-2 { 
+    animation: floatSlow 7s ease-in-out infinite; 
+}
+.orb-3 { 
+    animation: float 6s 1s ease-in-out infinite; 
+}
+
+/* ring + glow */
+.ring-pulse   { 
+    animation: pulseRing   4s ease-in-out infinite; 
+}
+.glow-breathe { 
+    animation: glowBreathe 3s ease-in-out infinite; 
+}
