@@ -123,10 +123,42 @@ function TechCard({ iconKey, name, color, glow }) {
                 cursor: "default",
             }}>
 
+            {/* icon */}
+            <span
+                style={{
+                    display: "block",
+                    transition: "all .3s ease",
+                    filter: hovered ? `drop-shadow(0 0 8px ${color}99)` : "none",
+                    transform: hovered ? "scale(1.2)" : "scale(1)",
+                }}>
+      
+                <IconComp size={24} color={hovered ? color : "#64748b"} />
+            </span>
+
+            {/* label below the icon */}
+            <span
+                style={{
+                    fontSize: 10,
+                    fontWeight: 600,
+                    letterSpacing: ".02em",
+                    color: hovered ? "#e2e8f0" : "#475569", 
+                    transition: "color .3s",
+                    textAlign: "center",
+                }}>
+            
+                {name}
+            </span>
         </div>
-    )
-    
+    ); 
 }
+
+
+// delay - controls how long the animation waits before starting
+const fadeUp = (delay) => ({
+    opacity: secVis ? 1 : 0,
+    transform: secVis ? "translateY(0)" : "translateY(28px)",
+    transition: `opacity .65s ease ${delay}s, transform .65s cubic-bezier(.22,1,.36,1) ${delay}s`,
+});
 
 
 const Education = () => {
