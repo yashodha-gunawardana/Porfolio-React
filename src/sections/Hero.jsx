@@ -70,10 +70,10 @@ const Hero = () => {
 
                 <div className="fade-up-2 w-fit">
                     <span 
-                        className="px-2 rounded text-sm font-semibold tracking-widest text-white"
+                        className="px-4 rounded text-sm font-semibold tracking-widest text-white"
                         style={{ background: "#0084ff56"}}>
                             
-                        FRONTEND  DEVELOPER
+                        FULL-STACK DEVELOPER | UI/ UX DESIGNER
                     </span>
                 </div>
 
