@@ -108,7 +108,10 @@ function TechCard({ iconKey, name, color, glow }) {
             onMouseLeave={() => setHovered(false)}
             style={{
                 display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                gap: 8, padding: "16px 12px", borderRadius: 14, minWidth: 72
+                gap: 8, padding: "16px 12px", borderRadius: 14, minWidth: 72,
+                background: hovered
+                    ? `radial-gradient(ellipse at top, ${glow}, transparent 70%), rgba(255,255,255,.05)`
+                    : "rgba(255,255,255,.03)",
             }}>
 
         </div>
