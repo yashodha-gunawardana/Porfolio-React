@@ -1,5 +1,6 @@
 import React from "react";
 import { FaUniversity, FaSchool, FaGraduationCap } from "react-icons/fa";
+import { FaS } from "react-icons/fa6";
 import { SiHtml5, SiCss, SiJavascript, SiReact, SiTailwindcss, SiFigma, SiNodedotjs, SiMysql } from "react-icons/si";
 
 
@@ -101,6 +102,17 @@ function TechCard({ iconKey, name, color, glow }) {
     const [hovered, setHovered] = useState(false); 
     const IconComp = Icons[iconKey]; 
 
+    return (
+        <div
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            style={{
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                gap: 8, padding: "16px 12px", borderRadius: 14, minWidth: 72
+            }}>
+
+        </div>
+    )
     
 }
 
