@@ -1,6 +1,8 @@
 import React from "react";
 import { FaUniversity, FaSchool, FaGraduationCap } from "react-icons/fa";
 import { SiHtml5, SiCss, SiJavascript, SiReact, SiTailwindcss, SiFigma, SiNodedotjs, SiMysql } from "react-icons/si";
+
+
 const education = [
     {
         icon: <FaUniversity size={28} />,
@@ -29,28 +31,68 @@ const education = [
 const skills = [
     {
         category: "Frontend",
-        techs: [
-            { icon: <SiHtml5 size={28} />,       name: "HTML5",      color: "#E34F26" },
-            { icon: <SiCss size={28} />,         name: "CSS3",       color: "#1572B6" },
-            { icon: <SiJavascript size={28} />,   name: "JavaScript", color: "#F7DF1E" },
-            { icon: <SiReact size={28} />,        name: "React",      color: "#61DAFB" },
-            { icon: <SiTailwindcss size={28} />,  name: "Tailwind",   color: "#38BDF8" },
+        techs: [ 
+            { iconKey: "Html5", name: "HTML", color: "#E34F26", glow: "rgba(227,79,38,0.35)" }, 
+            { iconKey: "Css3", name: "CSS", color: "#1572B6", glow: "rgba(21,114,182,0.35)" }, 
+            { iconKey: "JavaScript", name: "JavaScript", color: "#F7DF1E", glow: "rgba(247,223,30,0.35)" }, 
+            { iconKey: "TypeScript", name: "TypeScript", color: "#3178C6", glow: "rgba(49,120,198,0.35)" }, 
+            { iconKey: "React", name: "React", color: "#61DAFB", glow: "rgba(97,218,251,0.35)" }, 
+            { iconKey: "Tailwind", name: "Tailwind", color: "#38BDF8", glow: "rgba(56,189,248,0.35)" }, 
+            { iconKey: "Bootstrap", name: "Bootstrap", color: "#7952B3", glow: "rgba(121,82,179,0.35)" }, 
+            { iconKey: "Responsive", name: "Responsive", color: "#f472b6", glow: "rgba(244,114,182,0.35)" },
         ],
     },
-    {
-        category: "Design",
-        techs: [
-            { icon: <SiFigma size={28} />,        name: "Figma",      color: "#F24E1E" },
-        ],
+    { 
+        category: "Mobile", 
+        techs: [ 
+            { iconKey: "React", name: "React Native", color: "#61DAFB", glow: "rgba(97,218,251,0.35)" }, 
+            { iconKey: "Expo", name: "Expo", color: "#e2e8f0", glow: "rgba(226,232,240,0.2)" }, 
+        ], 
     },
-    {
-        category: "Backend",
-        techs: [
-            { icon: <SiNodedotjs size={28} />,    name: "Node.js",    color: "#3C873A" },
-            { icon: <SiMysql size={28} />,        name: "MySQL",      color: "#00758F" },
-        ],
+    { 
+        category: "Backend", 
+        techs: [ 
+            { iconKey: "NodeJS", name: "Node.js", color: "#3C873A", glow: "rgba(60,135,58,0.35)" }, 
+            { iconKey: "Express", name: "Express.js", color: "#aaaaaa", glow: "rgba(200,200,200,0.2)" }, 
+            { iconKey: "SpringBoot", name: "Spring Boot", color: "#6DB33F", glow: "rgba(109,179,63,0.35)" }, 
+            { iconKey: "Java", name: "Java", color: "#f89820", glow: "rgba(248,152,32,0.35)" }, 
+            { iconKey: "Python", name: "Python", color: "#3776AB", glow: "rgba(55,118,171,0.35)" }, 
+        ], 
+    }, 
+    { 
+        category: "Database", 
+        techs: [ 
+            { iconKey: "MySQL", name: "MySQL", color: "#00758F", glow: "rgba(0,117,143,0.35)" }, 
+            { iconKey: "MongoDB", name: "MongoDB", color: "#47A248", glow: "rgba(71,162,72,0.35)" }, 
+        ], 
+    },
+    { 
+        category: "Design", 
+        techs: [ 
+            { iconKey: "Figma", name: "Figma", color: "#F24E1E", glow: "rgba(242,78,30,0.35)" }, 
+            { iconKey: "Wireframe", name: "Wireframing", color: "#a78bfa", glow: "rgba(167,139,250,0.35)" }, 
+            { iconKey: "Prototype", name: "Prototyping", color: "#fb923c", glow: "rgba(251,146,60,0.35)" }, 
+        ], 
     },
 ];
+
+
+function useInView(threshold = 0.05) { 
+    const ref = useRef(null); 
+    const [visible, setVisible] = useState(false); 
+
+    useEffect(() => { 
+        const obs = new IntersectionObserver( ([e]) => { 
+            if (e.isIntersecting) setVisible(true); 
+        }, { threshold } ); 
+
+        if (ref.current) obs.observe(ref.current); 
+        return () => obs.disconnect(); 
+        
+    }, []); 
+        
+    return [ref, visible]; 
+}
 
 
 const Education = () => {

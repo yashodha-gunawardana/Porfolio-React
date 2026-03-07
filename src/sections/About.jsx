@@ -26,7 +26,7 @@ const About = () => {
                 {/* profile image with frame */}
                 <div className="about-fade-1 relative flex-shrink-0 flex justify-center lg:block">
 
-                    <div className="img-frame relative z-10 lg:w-[500px] lg:h-[600px] md:w-[300px] md:h-[320px] w-[200px] h-[200px]">
+                    <div className="img-frame relative z-10 lg:w-[500px] lg:h-[600px] md:w-[250px] md:h-[280px] w-[200px] h-[200px]">
 
                         {/* frame */}
                         <div
