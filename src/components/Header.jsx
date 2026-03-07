@@ -16,7 +16,7 @@ const Header = () => {
                 style={{ background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)" }}>
             
                 {/* ── main row ── */}
-                <div className="flex items-center justify-between px-6 md:px-16 lg:px-50 py-5">
+                <div className="flex items-center justify-between px-6 md:px-16 lg:px-50 py-8">
 
                     {/* logo */}
                     <div className="flex items-center gap-1">

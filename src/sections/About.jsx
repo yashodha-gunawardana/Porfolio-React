@@ -15,60 +15,67 @@ const About = () => {
 
     return (
         <section id="about"
-            className="w-full flex items-start justify-between px-50 py-50"
+            className="w-full flex items-start justify-between lg:px-50 lg:py-50 md:px-16 md:py-35 px-6 py-30"
             style={{
                 minHeight: "100vh",
                 background: "#0A0F1E"
             }}>
 
-            <div className="flex gap-40 max-w-5xl w-full">
+            <div className="flex flex-col lg:flex-row lg:gap-40 gap-12 max-w-5xl w-full">
 
                 {/* profile image with frame */}
-                <div className="about-fade-1 relative flex-shrink-0">
+                <div className="about-fade-1 relative flex-shrink-0 flex justify-center lg:block">
 
-                    <div
-                        className="absolute"
-                        style={{
-                            width: "100%", height: "100%",
-                            border: "2px solid #A0AEC0",
-                            top: "0px", right: "0px",
-                            borderRadius: "4px",
-                            zIndex: 0
-                        }}>
-                    </div>
+                    <div className="img-frame relative z-10 lg:w-[500px] lg:h-[600px] md:w-[300px] md:h-[320px] w-[200px] h-[200px]">
 
-                    <div
-                        className="img-frame relative z-10"
-                        style={{
-                            width: "500px", height: "600px"
-                        }}>
+                        {/* frame */}
+                        <div
+                            className="absolute inset-0"
+                            style={{
+                                border: "2px solid #A0AEC0",
+                                borderRadius: "4px",
+                                zIndex: 0
+                            }}>
+                        </div>
 
+                        {/* image */}
                         <img
                             src="src/assets/profile.png"
                             alt="Yashoda"
                             style={{
-                                width: "100%", height: "100%",
-                                objectFit: "cover", objectPosition: "top",
-                                borderRadius: "4px", display: "block",
-                            }}>
-                        </img>
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "top",
+                                borderRadius: "4px",
+                                display: "block",
+                            }}
+                        />
 
-                        <div 
+                        {/* top corner */}
+                        <div
+                            className="
+                            absolute 
+                            lg:-top-[20px] lg:-right-[20px] lg:w-[40px] lg:h-[40px]
+                            md:-top-[15px] md:-right-[15px] md:w-[30px] md:h-[30px]
+                            -top-[10px] -right-[10px] w-[22px] h-[22px]
+                            "
                             style={{
-                                position: "absolute",
-                                top: "-20px", right: "-20px",
-                                width: "40px", height: "40px",
                                 borderTop: "3px solid #0084FF",
                                 borderRight: "3px solid #0084FF",
                                 zIndex: 20,
                             }}>
                         </div>
 
-                        <div 
+                        {/* bottom corner */}
+                        <div
+                            className="
+                            absolute
+                            lg:-bottom-[20px] lg:-left-[20px] lg:w-[40px] lg:h-[40px]
+                            md:-bottom-[15px] md:-left-[15px] md:w-[30px] md:h-[30px]
+                            -bottom-[10px] -left-[10px] w-[22px] h-[22px]
+                            "
                             style={{
-                                position: "absolute",
-                                bottom: "-20px", left: "-20px",
-                                width: "40px", height: "40px",
                                 borderBottom: "3px solid #0084FF",
                                 borderLeft: "3px solid #0084FF",
                                 zIndex: 20,
@@ -80,17 +87,16 @@ const About = () => {
                 {/* text content */}
                 <div className="flex flex-col gap-5">
 
-                    <div className="about-fade-2">
+                    <div className="about-fade-2 lg:text-left text-center">
                         <p
                             className="text-xs font semibold tracking-widest uppercase mb-1"
                             style={{ color: "#A0AEC0" }}>
 
-                            Get TO Know
-
+                            Get To Know
                         </p>
 
                         <h2 
-                            className="text-5xl font-bold text-white">
+                            className="lg:text-5xl font-bold text-white text-3xl md:text-4xl">
                             
                             About <span style={{ color: "#0084FF"}}>Me</span>
                         </h2>
@@ -98,7 +104,7 @@ const About = () => {
 
                     {/* divider */}
                     <div 
-                        className="about-fade-2"
+                        className="about-fade-2 mx-auto lg:mx-0"
                         style={{
                             width: "60px", height: "3px",
                             background: "#0084FF", borderRadius: "2px"
@@ -106,60 +112,62 @@ const About = () => {
                     </div>
 
                     {/* description */}
-                    <div className="about-fade-3 relative" style={{ minWidth: "850px", left: "20px", top: "20px" }}>
-
+                    <div className="about-fade-3 relative lg:top-[20px] lg:left-[20px] w-full md:max-w-[750px] lg:min-w-[850px]">
+                        
                         {/* opening quote mark */}
                         <div className="relative max-w-3xl">
-                        
-                            {/* first paragraph with opening quote */}
+
+                            {/* first paragraph */}
                             <p
-                                className="text-m leading-relaxed"
-                                style={{
-                                color: "#ffffff",
-                                display: "flex",
-                                alignItems: "flex-start",
-                                gap: "15px",
-                                marginTop: "10px", 
-                                }}>
-                            
-                                <FaQuoteLeft size={32} style={{ color: "#0084FF", opacity: 0.3, flexShrink: 0, marginTop: "6px" }}/>
+                                className="leading-relaxed flex items-start gap-3 md:gap-4 mt-2 text-sm md:text-base"
+                                style={{ color: "#ffffff" }}>
+
+                                <FaQuoteLeft
+                                    className="flex-shrink-0 mt-[6px]"
+                                    size={24}
+                                    style={{ color: "#0084FF", opacity: 0.3 }}
+                                />
 
                                 <span>
-                                    I'm Yashoda Gunawardhana, a passionate Software Engineering undergraduate and aspiring UI/UX Designer from Sri Lanka. 
+                                    I'm Yashoda Gunawardhana, a passionate Software Engineering undergraduate and aspiring UI/UX Designer from Sri Lanka.
                                     I am committed to crafting modern, engaging, and user-friendly digital experiences.
                                 </span>
                             </p>
 
-                            {/* subsequent paragraphs aligned with first paragraph */}
+                            {/* paragraph 2 */}
                             <p
-                                className="text-m leading-relaxed mt-3"
-                                style={{ color: "#ffffff", paddingLeft: "45px" }}>
-                            
-                                I enjoy building responsive web and mobile applications, leveraging both frontend and backend development skills while creating intuitive, 
+                                className="leading-relaxed mt-3 text-sm md:text-base pl-8 md:pl-[45px]"
+                                style={{ color: "#ffffff" }}>
+                                
+                                I enjoy building responsive web and mobile applications, leveraging both frontend and backend development skills while creating intuitive,
                                 user-centered designs. I have a strong interest in UI/UX design and use tools like Figma to bring creative ideas to life.
                             </p>
 
+                            {/* paragraph 3 */}
                             <p
-                                className="text-m leading-relaxed mt-3"
-                                style={{ color: "#ffffff", paddingLeft: "45px" }}>
-                            
-                                Currently, I’m studying Software Engineering at IJSE, continuously expanding my knowledge in software development and emerging technologies. 
+                                className="leading-relaxed mt-3 text-sm md:text-base pl-8 md:pl-[45px]"
+                                style={{ color: "#ffffff" }}>
+
+                                Currently, I’m studying Software Engineering at IJSE, continuously expanding my knowledge in software development and emerging technologies.
                                 I strive to create digital solutions that are efficient, impactful, and enhance the user experience.
                             </p>
 
                             {/* closing quote */}
                             <div className="flex justify-end mt-2">
-                                <FaQuoteRight size={32} style={{ color: "#0084FF", opacity: 0.3 }} />
+                                <FaQuoteRight
+                                    size={24}
+                                    style={{ color: "#0084FF", opacity: 0.3 }}
+                                />
                             </div>
                         </div>
                     </div>
 
                     {/* stats row */}
-                    <div className="about-fade-4 flex gap-4 pl-20">
+                    <div className="about-fade-4 flex flex-wrap justify-center lg:justify-start gap-4 lg:pl-20">
                         {stats.map(({ number, label }) => (
                             <div
                                 key={label}
-                                className="flex flex-col items-center px-12 py-4 rounded-xl transition-all duration-300"
+                                className="flex flex-col items-center px-6 md:px-10 lg:px-12 py-4 rounded-xl transition-all duration-300"
                                 style={{
                                     background: "rgba(0,132,255,0.06)",
                                     border: "1px solid rgba(0,132,255,0.2)",
@@ -184,7 +192,7 @@ const About = () => {
 
                     
                     {/* buttons */}
-                    <div className="about-fade-5 flex items-center gap-5 mt-2 pl-20">
+                    <div className="about-fade-5 flex flex-wrap justify-center lg:justify-start items-center gap-5 mt-2 lg:pl-20">
                         
                         {/* hire me btn */}
                         <button

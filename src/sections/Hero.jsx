@@ -67,7 +67,7 @@ const Hero = () => {
         
             {/* ── wrapper ── */}
             <div
-                className="relative flex flex-col lg:flex-row items-center justify-between h-full px-6 md:px-16 lg:px-20 py-12 lg:py-0"
+                className="relative flex flex-col lg:flex-row items-center justify-between h-full px-6 md:px-16 lg:px-50 py-12 lg:py-0"
                 style={{ minHeight: "calc(100vh - 80px)" }}>
 
                 {/* ── left side ── */}
@@ -309,7 +309,7 @@ const Hero = () => {
                         src="src/assets/profile.png"
                         alt="Yashoda"
                         style={{
-                            height: "92%",
+                            height: "100%",
                             width: "100%",
                             objectFit: "contain",
                             objectPosition: "center bottom",
