@@ -119,6 +119,8 @@ function TechCard({ iconKey, name, color, glow }) {
                 transform: hovered
                     ? "translateY(-6px) scale(1.08)"
                     : "translateY(0) scale(1)",
+                transition: "all .3s cubic-bezier(.34,1.56,.64,1)",
+                cursor: "default",
             }}>
 
         </div>
