@@ -113,6 +113,9 @@ function TechCard({ iconKey, name, color, glow }) {
                     ? `radial-gradient(ellipse at top, ${glow}, transparent 70%), rgba(255,255,255,.05)`
                     : "rgba(255,255,255,.03)",
                 border: `1px solid ${hovered ? color + "55" : "rgba(255,255,255,.08)"}`,
+                boxShadow: hovered
+                    ? `0 8px 24px ${glow}, 0 0 0 1px ${color}22`
+                    : "none",
                 
             }}>
 
