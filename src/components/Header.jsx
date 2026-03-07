@@ -40,7 +40,7 @@ const Header = () => {
                             href={`#${link.toLowerCase()}`}
                             onClick={() => setActive(link)}
                             className={`nav-link text-xs font-semibold tracking-widest transition-colors duration-200 ${
-                                active === link ? "active text-white" : "text-white hover:text-white"
+                                active === link ? "active text-white" : "text-gray-400 hover:text-white"
                             }`}>
                         
                             {link}

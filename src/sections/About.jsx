@@ -1,9 +1,11 @@
 import React from "react";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import { HiArrowRight } from "react-icons/hi";
+import { FaDownload } from "react-icons/fa";
 
 
 const About = () => {
-    
+
     const stats = [
         { number: "10+", label: "Projects Done" },
         { number: "2+", label: "Years Learning" },
@@ -113,7 +115,7 @@ const About = () => {
                             <p
                                 className="text-m leading-relaxed"
                                 style={{
-                                color: "#A0AEC0",
+                                color: "#ffffff",
                                 display: "flex",
                                 alignItems: "flex-start",
                                 gap: "15px",
@@ -131,7 +133,7 @@ const About = () => {
                             {/* subsequent paragraphs aligned with first paragraph */}
                             <p
                                 className="text-m leading-relaxed mt-3"
-                                style={{ color: "#A0AEC0", paddingLeft: "45px" }}>
+                                style={{ color: "#ffffff", paddingLeft: "45px" }}>
                             
                                 I enjoy building responsive web and mobile applications, leveraging both frontend and backend development skills while creating intuitive, 
                                 user-centered designs. I have a strong interest in UI/UX design and use tools like Figma to bring creative ideas to life.
@@ -139,7 +141,7 @@ const About = () => {
 
                             <p
                                 className="text-m leading-relaxed mt-3"
-                                style={{ color: "#A0AEC0", paddingLeft: "45px" }}>
+                                style={{ color: "#ffffff", paddingLeft: "45px" }}>
                             
                                 Currently, I’m studying Software Engineering at IJSE, continuously expanding my knowledge in software development and emerging technologies. 
                                 I strive to create digital solutions that are efficient, impactful, and enhance the user experience.
@@ -152,11 +154,62 @@ const About = () => {
                         </div>
                     </div>
 
+                    {/* stats row */}
+                    <div className="about-fade-4 flex gap-4 pl-20">
+                        {stats.map(({ number, label }) => (
+                            <div
+                                key={label}
+                                className="flex flex-col items-center px-12 py-4 rounded-xl transition-all duration-300"
+                                style={{
+                                    background: "rgba(0,132,255,0.06)",
+                                    border: "1px solid rgba(0,132,255,0.2)",
+                                    minWidth: "100px",
+                                }}
+                                onMouseEnter={e => {
+                                    e.currentTarget.style.background = "rgba(0,132,255,0.12)";
+                                    e.currentTarget.style.borderColor = "rgba(0,132,255,0.5)";
+                                    e.currentTarget.style.transform = "translateY(-4px)";
+                                }}
+                                onMouseLeave={e => {
+                                    e.currentTarget.style.background = "rgba(0,132,255,0.06)";
+                                    e.currentTarget.style.borderColor = "rgba(0,132,255,0.2)";
+                                    e.currentTarget.style.transform = "translateY(0px)";
+                                }}>
+                            
+                                <span className="text-2xl font-black" style={{ color: "#0084FF" }}>{number}</span>
+                                <span className="text-xs text-center mt-1 font-medium" style={{ color: "#ffffff" }}>{label}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    
+                    {/* buttons */}
+                    <div className="about-fade-5 flex items-center gap-5 mt-2 pl-20">
+                        
+                        {/* hire me btn */}
+                        <button
+                            className="hire-btn flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white
+                            transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,132,255,0.7)]"
+                            style={{ background: "#0084FF", boxShadow: "0 0 20px rgba(0,132,255,0.4)" }}>
+                            
+                            HIRE ME <HiArrowRight size={14} />
+                        </button>
+
+                        {/* download cv btn */}
+                        <button
+                            className="cv-btn flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold
+                            transition-all duration-300 hover:bg-[#0084FF] hover:text-white hover:scale-105"
+                            style={{
+                                background: "transparent",
+                                color: "#0084FF",
+                                border: "2px solid #0084FF",
+                            }}>
+                            
+                            DOWNLOAD CV <FaDownload size={13} />
+                        </button>
+                    </div>
                 </div>
-
-
             </div>
-
         </section>
     )
 }

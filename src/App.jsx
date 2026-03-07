@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import About from './sections/About';
+import Education from './sections/Education';
 import Hero from './sections/Hero';
 
 function App() {
@@ -7,8 +8,17 @@ function App() {
     <div>
       <Header />
       <main>
-        <Hero />
-        <About />
+        <section id="home">
+          <Hero />
+        </section>
+
+        <section id="about">
+          <About />
+        </section>
+
+        <section id="education">
+          <Education />
+        </section>
       </main>
     </div>
   );
