@@ -116,7 +116,9 @@ function TechCard({ iconKey, name, color, glow }) {
                 boxShadow: hovered
                     ? `0 8px 24px ${glow}, 0 0 0 1px ${color}22`
                     : "none",
-                
+                transform: hovered
+                    ? "translateY(-6px) scale(1.08)"
+                    : "translateY(0) scale(1)",
             }}>
 
         </div>
