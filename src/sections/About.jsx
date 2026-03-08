@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { HiArrowRight } from "react-icons/hi";
 import { FaDownload } from "react-icons/fa";
 
 
+// responsive hook 
+function useWindowWidth() {
+    const [width, setWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
+    
+    useEffect(() => {
+        const handle = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handle);
+
+        return () => window.removeEventListener("resize", handle);
+    }, []);
+
+    return width;
+}
+
 const About = () => {
+    const width = useWindowWidth();
+    const isMobile = width < 640;
+    const isTablet = width >= 640 && width < 1024;
 
     const stats = [
         { number: "10+", label: "Projects Done" },
@@ -96,7 +113,7 @@ const About = () => {
                         </p>
 
                         <h2 
-                            className="lg:text-5xl font-bold text-white text-3xl md:text-4xl">
+                            className="lg:text-5xl font-bold text-white md:text-5xl text-3xl">
                             
                             About <span style={{ color: "#0084FF"}}>Me</span>
                         </h2>
@@ -112,19 +129,29 @@ const About = () => {
                     </div>
 
                     {/* description */}
-                    <div className="about-fade-3 relative lg:top-[20px] lg:left-[20px] w-full md:max-w-[750px] lg:min-w-[850px]">
+                    <div
+                        className="about-fade-3 w-full"
+                        style={{
+                            position: "relative",
+                            top: isMobile ? 0 : isTablet ? "10px" : "20px",
+                            left: isMobile ? 0 : isTablet ? "10px" : "20px",
+                            maxWidth: isMobile ? "100%" : isTablet ? "100%" : undefined,
+                            minWidth: isMobile ? "unset" : isTablet ? "unset" : "850px",
+                        }}>
                         
-                        {/* opening quote mark */}
                         <div className="relative max-w-3xl">
 
                             {/* first paragraph */}
                             <p
-                                className="leading-relaxed flex items-start gap-3 md:gap-4 mt-2 text-sm md:text-base"
-                                style={{ color: "#ffffff" }}>
+                                className="leading-relaxed flex items-start gap-3 md:gap-4 mt-2"
+                                style={{
+                                    color: "#ffffff",
+                                    fontSize: isMobile ? "0.8rem" : isTablet ? "0.875rem" : "1rem",
+                                }}>
 
                                 <FaQuoteLeft
                                     className="flex-shrink-0 mt-[6px]"
-                                    size={24}
+                                    size={isMobile ? 18 : 24}
                                     style={{ color: "#0084FF", opacity: 0.3 }}
                                 />
 
@@ -136,8 +163,12 @@ const About = () => {
 
                             {/* paragraph 2 */}
                             <p
-                                className="leading-relaxed mt-3 text-sm md:text-base pl-8 md:pl-[45px]"
-                                style={{ color: "#ffffff" }}>
+                                className="leading-relaxed mt-3"
+                                style={{
+                                    color: "#ffffff",
+                                    fontSize: isMobile ? "0.8rem" : isTablet ? "0.875rem" : "1rem",
+                                    paddingLeft: isMobile ? "28px" : "45px",
+                                }}>
                                 
                                 I enjoy building responsive web and mobile applications, leveraging both frontend and backend development skills while creating intuitive,
                                 user-centered designs. I have a strong interest in UI/UX design and use tools like Figma to bring creative ideas to life.
@@ -145,17 +176,21 @@ const About = () => {
 
                             {/* paragraph 3 */}
                             <p
-                                className="leading-relaxed mt-3 text-sm md:text-base pl-8 md:pl-[45px]"
-                                style={{ color: "#ffffff" }}>
+                                className="leading-relaxed mt-3"
+                                style={{
+                                    color: "#ffffff",
+                                    fontSize: isMobile ? "0.8rem" : isTablet ? "0.875rem" : "1rem",
+                                    paddingLeft: isMobile ? "28px" : "45px",
+                                }}>
 
-                                Currently, I’m studying Software Engineering at IJSE, continuously expanding my knowledge in software development and emerging technologies.
+                                Currently, I'm studying Software Engineering at IJSE, continuously expanding my knowledge in software development and emerging technologies.
                                 I strive to create digital solutions that are efficient, impactful, and enhance the user experience.
                             </p>
 
                             {/* closing quote */}
                             <div className="flex justify-end mt-2">
                                 <FaQuoteRight
-                                    size={24}
+                                    size={isMobile ? 18 : 24}
                                     style={{ color: "#0084FF", opacity: 0.3 }}
                                 />
                             </div>
@@ -163,15 +198,24 @@ const About = () => {
                     </div>
 
                     {/* stats row */}
-                    <div className="about-fade-4 flex flex-wrap justify-center lg:justify-start gap-4 lg:pl-20">
+                    <div
+                        className="about-fade-4 flex flex-wrap gap-4"
+                        style={{
+                            justifyContent: isMobile || isTablet ? "center" : "flex-start",
+                            paddingLeft: isMobile ? 0 : isTablet ? 0 : "80px",
+                        }}>
+                            
                         {stats.map(({ number, label }) => (
                             <div
                                 key={label}
-                                className="flex flex-col items-center px-6 md:px-10 lg:px-12 py-4 rounded-xl transition-all duration-300"
+                                className="flex flex-col items-center rounded-xl transition-all duration-300"
                                 style={{
                                     background: "rgba(0,132,255,0.06)",
                                     border: "1px solid rgba(0,132,255,0.2)",
-                                    minWidth: "100px",
+                                    minWidth: isMobile ? "80px" : "100px",
+                                    paddingLeft:  isMobile ? "16px" : isTablet ? "28px" : "48px",
+                                    paddingRight: isMobile ? "16px" : isTablet ? "28px" : "48px",
+                                    paddingTop: "16px", paddingBottom: "16px",
                                 }}
                                 onMouseEnter={e => {
                                     e.currentTarget.style.background = "rgba(0,132,255,0.12)";
@@ -184,15 +228,36 @@ const About = () => {
                                     e.currentTarget.style.transform = "translateY(0px)";
                                 }}>
                             
-                                <span className="text-2xl font-black" style={{ color: "#0084FF" }}>{number}</span>
-                                <span className="text-xs text-center mt-1 font-medium" style={{ color: "#ffffff" }}>{label}</span>
+                                <span
+                                    className="font-black"
+                                    style={{
+                                        color: "#0084FF",
+                                        fontSize: isMobile ? "1.25rem" : "1.5rem",
+                                    }}>
+
+                                    {number}
+                                </span>
+
+                                <span
+                                    className="text-center mt-1 font-medium"
+                                    style={{
+                                        color: "#ffffff",
+                                        fontSize: isMobile ? "0.65rem" : "0.75rem",
+                                    }}>
+
+                                    {label}
+                                </span>
                             </div>
                         ))}
                     </div>
 
-                    
                     {/* buttons */}
-                    <div className="about-fade-5 flex flex-wrap justify-center lg:justify-start items-center gap-5 mt-2 lg:pl-20">
+                    <div
+                        className="about-fade-5 flex flex-wrap items-center gap-5 mt-2"
+                        style={{
+                            justifyContent: isMobile || isTablet ? "center" : "flex-start",
+                            paddingLeft: isMobile ? 0 : isTablet ? 0 : "80px",
+                        }}>
                         
                         {/* hire me btn */}
                         <button
@@ -219,8 +284,7 @@ const About = () => {
                 </div>
             </div>
         </section>
-    )
-}
-
+    );
+};
 
 export default About;
