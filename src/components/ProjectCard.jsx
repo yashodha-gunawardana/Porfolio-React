@@ -49,6 +49,48 @@ function CyclingImage({ images, hovered, type }) {
                     overflow: "hidden",
                 }}>
 
+                {/* ender two images side-by-side */}
+                {[img1, img2].map((src, i) => (
+                    <div 
+                        key={i} 
+                        style={{
+
+                            // individual image container
+                            flex: 1, borderRadius: 12, overflow: "hidden",
+                            boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+
+                            // fade animation when image changes
+                            opacity: fading ? 0 : 1,
+                            transform: fading ? "translateY(4px)" : "translateY(0)",
+                            transition: "opacity .3s ease, transform .3s ease",
+                        }}>
+
+                        <img
+                            src={src}
+                            alt="project"
+                            draggable={false}
+                            style={{
+                                width: "100%", height: "100%",
+                                objectFit: "contain", objectPosition: "center",
+                                display: "block",
+
+                                // slight brightness change on hover
+                                filter: hovered ? "brightness(1.05)" : "brightness(0.92)",
+                                transition: "filter .4s ease",
+
+                                // prevent image selection or interaction
+                                userSelect: "none", pointerEvents: "none",
+                            }}
+                            
+                            // handle image loading errors
+                            onError={e => {
+                                e.target.parentNode.style.background = "rgba(0,132,255,0.08)";
+                                e.target.style.display = "none";
+                            }}
+                        />
+                    </div>
+                ))}
+
                 
             </div>
         );
