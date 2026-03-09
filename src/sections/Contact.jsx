@@ -11,7 +11,7 @@ function useWindowWidth() {
 
     }, []);
     return width;
-}
+};
 
 function useInView(threshold = 0.05) {
     const ref = useRef(null);
@@ -24,7 +24,16 @@ function useInView(threshold = 0.05) {
 
         if (ref.current) obs.observe(ref.current);
         return () => obs.disconnect();
-        
+
     }, []);
     return [ref, visible];
-}
+};
+
+
+const ACCENT = "#0084FF";
+
+const contactInfo = [
+    { icon: HiMail, label: "Email", value: "yashodagunawardhana15@gmail.com" },
+    { icon: HiPhone, label: "Phone", value: "+94 77 123 4567" },
+    { icon: HiLocationMarker, label: "Location", value: "Ratnapura, Sri Lanka" },
+];
