@@ -91,11 +91,43 @@ function CyclingImage({ images, hovered, type }) {
                     </div>
                 ))}
 
-                
+                {/* dot indicators for image groups */}
+                {total > 1 && (
+                    <div 
+                        style={{
+
+                            // position dots at the bottom center
+                            position: "absolute",
+                            bottom: 8,
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            display: "flex",
+                            gap: 5,
+                            zIndex: 2,
+                        }}>
+
+                        {/* create dots dynamically based on total image groups */}
+                        {Array.from({ length: total }).map((_, i) => (
+                            <div 
+                                key={i} 
+                                style={{
+
+                                    // active dot is wider and highlighted
+                                    width: i === dotIndex ? 14 : 4,
+                                    height: 4,
+                                    borderRadius: 999,
+                                    background: i === dotIndex
+                                        ? ACCENT
+                                        : "rgba(255,255,255,0.3)",
+
+                                    // smooth animation when active dot changes
+                                    transition: "all .3s ease",
+                                }} 
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         );
     };
-
-
-
 }
