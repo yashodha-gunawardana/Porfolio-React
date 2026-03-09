@@ -231,6 +231,7 @@ const Contact = () => {
                         <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: ACCENT, whiteSpace: "nowrap" }}>
                             Let's Connect
                         </span>
+
                         <div style={{ flex: 1, height: 1, background: "rgba(0,132,255,0.15)" }} />
                     </div>
 
@@ -295,8 +296,83 @@ const Contact = () => {
                     <div style={{ width: "100%", height: 1, background: "rgba(0,132,255,0.1)" }} />
                 )}
 
-            </div>
 
+                {/* right side */}
+                <div style={{ flex: 1, width: isStacked ? "100%" : undefined }}>
+
+                    {/* "Send a Message" label */}
+                    <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+                        <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: ACCENT, whiteSpace: "nowrap" }}>
+                            Send a Message
+                        </span>
+
+                        <div style={{ flex: 1, height: 1, background: "rgba(0,132,255,0.15)" }} />
+                    </div>
+
+                    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+
+                        {/* Name + Email side by side on tablet/desktop, stacked on mobile */}
+                        <div style={{ display: "flex", gap: 14, flexDirection: isMobile ? "column" : "row" }}>
+                            <div style={{ flex: 1 }}>
+                                <Field tag="input" type="text" placeholder="Your Name" />
+                            </div>
+
+                            <div style={{ flex: 1 }}>
+                                <Field tag="input" type="email" placeholder="Your Email" />
+                            </div>
+                        </div>
+
+                        {/* subject field */}
+                        <Field tag="input" type="text" placeholder="Subject" />
+
+                        {/* message textarea */}
+                        <Field tag="textarea" placeholder="Your Message" rows={6} />
+
+                        {/* submit button */}
+                        <button
+                            type="submit"
+                            disabled={sending || sent} 
+                            style={{
+                                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                                padding: "13px 28px", borderRadius: 12,
+
+                                // green tint when sent, blue when normal
+                                background: sent ? "rgba(34,197,94,0.15)" : ACCENT,
+                                border: `1px solid ${sent ? "rgba(34,197,94,0.4)" : ACCENT}`,
+                                color: sent ? "#4ade80" : "#fff",
+                                fontSize: 13.5, fontWeight: 700, letterSpacing: "0.04em",
+                                cursor: sending || sent ? "not-allowed" : "pointer",
+
+                                opacity: sending ? 0.75 : 1, // dim while sending
+                                transition: "all .3s ease",
+                                alignSelf: "flex-start", // don't stretch full width
+                            }}
+
+                            onMouseEnter={e => { if (!sending && !sent) e.currentTarget.style.opacity = "0.88"; }}
+                            onMouseLeave={e => { e.currentTarget.style.opacity = "1"; }}>
+
+                            {/* conditionally render button content based on state */}
+                            {sent ? (
+                                <>✓ Message Sent!</>       // Success state
+                            ) : sending ? (
+                                <>
+                                    {/* spinning SVG circle loader */}
+                                    <svg width="14" height="14" viewBox="0 0 14 14" style={{ animation: "spin 1s linear infinite" }}>
+                                        <circle cx="7" cy="7" r="5" fill="none" stroke="white" strokeWidth="2" strokeDasharray="20" strokeDashoffset="5" />
+                                    </svg>
+
+                                    Sending…
+                                </>
+                            ) : (
+                                <><FaPaperPlane size={13} /> Send Message</>  
+                            )}
+                        </button>
+
+                        {/* keyframe animation for the spinner — injected as inline style */}
+                        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+                    </form>
+                </div>
+            </div>  
         </section>
     );
 }
