@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 const ACCENT       = "#0084FF";
@@ -9,3 +9,37 @@ const IMAGE_CONFIG = {
     mobile: { height: "auto", objectFit: "contain", bg: "#0c1220" },
     web:    { height: "220px", objectFit: "cover",   bg: "transparent" },
 };
+
+
+function CyclingImage({ images, hovered, type }) {
+    const [imgIndex, setImgIndex] = useState(0);
+    const [fading, setFading] = useState(false);
+    const cfg = IMAGE_CONFIG[type] || IMAGE_CONFIG.web;
+    const isMobile = type === "mobile";
+    const step = isMobile ? 2 : 1;
+    const total = images ? Math.ceil(images.length / step) : 0;
+
+    useEffect(() => {
+        if (!images || images.length <= step) return;
+        const interval = setInterval(() => {
+            setFading(true);
+            setTimeout(() => {
+                setImgIndex(prev => (prev + step) % images.length);
+                setFading(false);
+            }, 300);
+        }, 2500);
+        return () => clearInterval(interval);
+    }, [images, step]);
+
+
+    if (isMobile) {
+        const img1 = images[imgIndex];
+        const img2 = images[(imgIndex + 1) % images.length];
+        const dotIndex = Math.floor(imgIndex / 2);
+
+        
+    };
+
+
+
+}
