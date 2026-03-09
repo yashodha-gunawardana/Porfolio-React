@@ -99,10 +99,11 @@ const Hero = () => {
                     {/* badge */}
                     <div className="fade-up-2 w-fit">
                         <span
-                            className="px-4 rounded font-semibold tracking-widest text-white"
+                            className="px-2 rounded font-semibold tracking-widest text-white"
                             style={{
                                 background: "#0084ff56",
-                                fontSize: isMobile ? "0.65rem" : "0.75rem",
+                                fontSize: isMobile ? "0.65rem" : "0.9rem",
+                                letterSpacing: "0.15em"
                             }}>
 
                             FULL-STACK DEVELOPER | UI/UX DESIGNER
@@ -112,17 +113,16 @@ const Hero = () => {
                     {/* headings */}
                     <div className="fade-up-3">
                         <h1
-                            className="font-extrabold text-white tracking-wider leading-tight"
+                            className="font-extrabold text-white tracking-wider leading-tight lg:text-6xl"
                             style={{
                                 fontSize: isMobile ? "1.8rem" : isTablet ? "2.5rem" : undefined,
                             }}>
-                            // desktop keeps Tailwind: text-4xl md:text-5xl lg:text-6xl
-                        
+                                           
                             HAY! I'M YASHODA
                         </h1>
 
                         <h2
-                            className="font-black leading-relaxed mt-1 tracking-wider"
+                            className="font-black leading-relaxed mt-1 tracking-wider lg:text-6xl"
                             style={{
                                 color: "#0084FF",
                                 fontSize: isMobile ? "1.8rem" : isTablet ? "2.5rem" : undefined,

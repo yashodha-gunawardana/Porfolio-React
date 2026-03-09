@@ -2,6 +2,7 @@ import Header from './components/Header';
 import About from './sections/About';
 import Education from './sections/Education';
 import Hero from './sections/Hero';
+import Projects from './sections/Projects';
 
 function App() {
   return (
@@ -19,7 +20,13 @@ function App() {
         <section id="education">
           <Education />
         </section>
+
+        <section id="projects">
+          <Projects />
+        </section>
+
       </main>
+     
     </div>
   );
 }
