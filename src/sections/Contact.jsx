@@ -181,6 +181,35 @@ const Contact = () => {
                     backgroundSize: "60px 60px",
                 }} 
             />
+
+            {/* heading */}
+            <div 
+                style={{
+                    textAlign: "center", marginBottom: isMobile ? 36 : 56,
+                    position: "relative", zIndex: 1,
+                    opacity: secVis ? 1 : 0,
+                    transform: secVis ? "translateY(0)" : "translateY(20px)",
+                    transition: "opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1)",
+                }}>
+
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#A0AEC0", marginBottom: 8 }}>
+                    Get In Touch
+                </p>
+
+                <h2 
+                    style={{
+                        fontSize: isMobile ? "2rem" : isTablet ? "2.6rem" : "3.2rem",
+                        fontWeight: 900, color: "#fff", margin: 0, lineHeight: 1.15,
+                    }}>
+
+                    Contact <span style={{ color: ACCENT }}>Me</span>
+                </h2>
+
+                {/* blue underline bar */}
+                <div style={{ width: 60, height: 3, background: ACCENT, borderRadius: 2, margin: "14px auto 0" }} />
+            </div>
+
+
         </section>
     );
 }
