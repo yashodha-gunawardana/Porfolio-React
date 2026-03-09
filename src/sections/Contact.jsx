@@ -99,11 +99,40 @@ function InfoCard({ Icon, label, value, delay, visible }) {
                         color: hovered ? "#ffffff" : "#e2e8f0", 
                         transition: "color .3s" 
                     }}>
-                        
+
                     {value}
                 </div>
             </div>
-
         </div>
-    )
+    );
+};
+
+
+function Field({ tag: Tag = "input", placeholder, type, rows }) {
+    const [focused, setFocused] = useState(false); 
+
+    return (
+        <Tag
+            type={type}
+            placeholder={placeholder}
+            rows={rows}
+            onFocus={() => setFocused(true)}   
+            onBlur={() => setFocused(false)}    
+            style={{
+                width: "100%", boxSizing: "border-box",
+                padding: "13px 16px",
+                borderRadius: 12,
+                background: "rgba(255,255,255,0.03)",
+
+                // blue border on focus, subtle border at rest
+                border: `1px solid ${focused ? "rgba(0,132,255,0.5)" : "rgba(0,132,255,0.15)"}`,
+                color: "#e2e8f0",
+                fontSize: 13, fontWeight: 500,
+                outline: "none",              
+                resize: Tag === "textarea" ? "none" : undefined, 
+                transition: "border-color .3s ease",
+                fontFamily: "inherit",        
+            }}
+        />
+    );
 }
