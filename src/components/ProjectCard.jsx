@@ -37,7 +37,21 @@ function CyclingImage({ images, hovered, type }) {
         const img2 = images[(imgIndex + 1) % images.length];
         const dotIndex = Math.floor(imgIndex / 2);
 
-        
+        return (
+            <div 
+                style={{
+                    position: "relative", flexShrink: 0,
+                    background: cfg.bg,
+                    height: "340px",
+                    padding: "12px 12px 28px",
+                    display: "flex", gap: 10,
+                    alignItems: "stretch", justifyContent: "center",
+                    overflow: "hidden",
+                }}>
+
+                
+            </div>
+        );
     };
 
 
