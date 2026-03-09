@@ -69,6 +69,18 @@ function InfoCard({ Icon, label, value, delay, visible }) {
                 transitionDelay: `${delay}s`,
             }}>
 
+            <div 
+                style={{
+                    width: 44, height: 44, borderRadius: "50%", flexShrink: 0,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    background: hovered ? "rgba(0,132,255,0.15)" : "rgba(0,132,255,0.08)",
+                    border: `1px solid ${hovered ? "rgba(0,132,255,0.5)" : "rgba(0,132,255,0.2)"}`,
+                    transition: "all .3s ease",
+                }}>
+                    
+                <Icon size={18} color={ACCENT} />
+            </div>
+
         </div>
     )
 }
