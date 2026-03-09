@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 function useWindowWidth() {
     const [width, setWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
 
-    
+    useEffect(() => {
+        const handle = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handle);
+    })
 }
