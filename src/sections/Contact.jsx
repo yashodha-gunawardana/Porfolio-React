@@ -37,3 +37,8 @@ const contactInfo = [
     { icon: HiPhone, label: "Phone", value: "+94 77 123 4567" },
     { icon: HiLocationMarker, label: "Location", value: "Ratnapura, Sri Lanka" },
 ];
+
+const socials = [
+    { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
+    { icon: FaGithub, href: "#", label: "GitHub" },
+];
