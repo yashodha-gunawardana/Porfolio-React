@@ -287,7 +287,13 @@ const Contact = () => {
                     </div>
                 </div>
 
-                
+                {/* divider between column */}
+                {!isStacked && (
+                    <div style={{ alignSelf: "stretch", width: 1, background: "rgba(0,132,255,0.1)", flexShrink: 0 }} />
+                )}
+                {isStacked && (
+                    <div style={{ width: "100%", height: 1, background: "rgba(0,132,255,0.1)" }} />
+                )}
 
             </div>
 
