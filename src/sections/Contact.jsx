@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 
 function useWindowWidth() {
@@ -8,7 +8,23 @@ function useWindowWidth() {
         const handle = () => setWidth(window.innerWidth);
         window.addEventListener("resize", handle);
         return () => window.removeEventListener("resize", handle);
+
+    }, []);
+    return width;
+}
+
+function useInView(threshold = 0.05) {
+    const ref = useRef(null);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const obs = new IntersectionObserver(([e]) => {
+            if (e.isIntersecting) setVisible(true);
+        }, { threshold });
+
+        if (ref.current) obs.observe(ref.current);
+        return () => obs.disconnect();
         
     }, []);
-    return width
+    return [ref, visible];
 }
