@@ -69,6 +69,7 @@ function InfoCard({ Icon, label, value, delay, visible }) {
                 transitionDelay: `${delay}s`,
             }}>
 
+            {/* circular icon container */}
             <div 
                 style={{
                     width: 44, height: 44, borderRadius: "50%", flexShrink: 0,
@@ -77,8 +78,30 @@ function InfoCard({ Icon, label, value, delay, visible }) {
                     border: `1px solid ${hovered ? "rgba(0,132,255,0.5)" : "rgba(0,132,255,0.2)"}`,
                     transition: "all .3s ease",
                 }}>
-                    
+
                 <Icon size={18} color={ACCENT} />
+            </div>
+
+            <div>
+                <div 
+                    style={{ 
+                        fontSize: 11, fontWeight: 600, 
+                        color: "#64748b", letterSpacing: "0.08em", 
+                        textTransform: "uppercase", marginBottom: 2 
+                    }}>
+
+                    {label}
+                </div>
+
+                <div 
+                    style={{ 
+                        fontSize: 14, fontWeight: 600, 
+                        color: hovered ? "#ffffff" : "#e2e8f0", 
+                        transition: "color .3s" 
+                    }}>
+                        
+                    {value}
+                </div>
             </div>
 
         </div>
