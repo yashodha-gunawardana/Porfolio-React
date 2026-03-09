@@ -210,6 +210,20 @@ const Contact = () => {
             </div>
 
 
+            {/* two column layout */}
+            <div 
+                style={{
+                    display: "flex",
+                    flexDirection: isStacked ? "column" : "row",
+                    gap: isMobile ? 36 : 48,
+                    width: "100%", maxWidth: 1000,
+                    position: "relative", zIndex: 1,
+                    opacity: secVis ? 1 : 0,
+                    transition: "opacity .5s ease .15s",
+                }}>
+
+            </div>
+
         </section>
     );
 }
