@@ -222,6 +222,73 @@ const Contact = () => {
                     transition: "opacity .5s ease .15s",
                 }}>
 
+                
+                {/* left side */}
+                <div style={{ flex: "0 0 340px", display: "flex", flexDirection: "column", gap: 0, width: isStacked ? "100%" : undefined }}>
+
+                    {/* "Let's Connect" label */}
+                    <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+                        <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: ACCENT, whiteSpace: "nowrap" }}>
+                            Let's Connect
+                        </span>
+                        <div style={{ flex: 1, height: 1, background: "rgba(0,132,255,0.15)" }} />
+                    </div>
+
+                    <p style={{ fontSize: 13.5, lineHeight: 1.75, color: "#64748b", marginBottom: 28, margin: "0 0 28px 0" }}>
+                        I'm open to freelance work, collaborations, or just a friendly chat. Feel free to reach out anytime!
+                    </p>
+
+                    {/* info cards*/}
+                    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                        {contactInfo.map(({ icon: Icon, label, value }, i) => (
+                            <InfoCard
+                                key={label}
+                                Icon={Icon}
+                                label={label}
+                                value={value}
+                                delay={0.1 + i * 0.1} 
+                                visible={secVis}
+                            />
+                        ))}
+                    </div>
+
+                    {/* social icon buttons row */}
+                    <div style={{ display: "flex", gap: 12, marginTop: 28 }}>
+                        {socials.map(({ icon: Icon, href, label }) => (
+                            <a
+                                key={label}
+                                href={href}
+                                title={label}
+                                style={{
+                                    width: 42, height: 42, borderRadius: "50%",
+                                    display: "flex", alignItems: "center", justifyContent: "center",
+                                    background: "rgba(0,132,255,0.08)",
+                                    border: "1px solid rgba(0,132,255,0.2)",
+                                    color: "#64748b",
+                                    textDecoration: "none",
+                                    transition: "all .3s ease",
+                                }}
+                                onMouseEnter={e => {
+                                    e.currentTarget.style.background = "rgba(0,132,255,0.15)";
+                                    e.currentTarget.style.borderColor = "rgba(0,132,255,0.5)";
+                                    e.currentTarget.style.color = ACCENT;
+                                    e.currentTarget.style.transform = "translateY(-4px)"; // Lift up
+                                }}
+                                onMouseLeave={e => {
+                                    e.currentTarget.style.background = "rgba(0,132,255,0.08)";
+                                    e.currentTarget.style.borderColor = "rgba(0,132,255,0.2)";
+                                    e.currentTarget.style.color = "#64748b";
+                                    e.currentTarget.style.transform = "translateY(0)";
+                                }}>
+
+                                <Icon size={15} />
+                            </a>
+                        ))}
+                    </div>
+                </div>
+
+                
+
             </div>
 
         </section>
