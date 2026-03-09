@@ -135,4 +135,52 @@ function Field({ tag: Tag = "input", placeholder, type, rows }) {
             }}
         />
     );
+};
+
+
+const Contact = () => {
+    const [secRef, secVis] = useInView(0.05); 
+    const width = useWindowWidth();
+
+    const isMobile  = width < 640;
+    const isTablet  = width >= 640 && width < 1024;
+    const isStacked = width < 1024;
+
+    // form submission state
+    const [sending, setSending] = useState(false); 
+    const [sent, setSent]       = useState(false);  
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); 
+        setSending(true);
+        setTimeout(() => { setSending(false); setSent(true); }, 1800);
+        setTimeout(() => setSent(false), 4000);
+    };
+
+
+    return (
+        <section
+            id="contact"
+            ref={secRef} 
+            className="w-full flex flex-col items-center py-30 relative overflow-hidden"
+            style={{
+                minHeight: "100vh",
+                background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)",
+                paddingLeft:  isMobile ? "20px" : isTablet ? "40px" : "80px",
+                paddingRight: isMobile ? "20px" : isTablet ? "40px" : "80px",
+            }}>
+
+            {/* subtle dot grid texture overlay for depth */}
+            <div 
+                style={{
+                    position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",
+                    backgroundImage: `
+                        linear-gradient(rgba(0,132,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,132,255,0.03) 1px, transparent 1px)
+                    `,
+                    backgroundSize: "60px 60px",
+                }} 
+            />
+        </section>
+    );
 }
