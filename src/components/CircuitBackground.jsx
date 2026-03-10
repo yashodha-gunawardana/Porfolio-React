@@ -8,7 +8,7 @@ function CircuitBackground() {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        const ctx = canvas.getContext("2nd");
+        const ctx = canvas.getContext("2d");
 
         // resize handler
         const resize = () => {
@@ -152,4 +152,22 @@ function CircuitBackground() {
             window.removeEventListener("resize", resize);
         };
     }, []);
-}
+
+
+    return (
+        <canvas
+            ref={canvasRef}
+            style={{
+                position: "absolute", inset: 0,
+                width: "100%", height: "100%",
+                zIndex: 0,           // sits behind all section content
+                pointerEvents: "none", // never blocks clicks or hovers
+                opacity: 0.85,
+            }}
+        />
+    );
+};
+
+
+export default CircuitBackground;
+

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { HiArrowRight } from "react-icons/hi";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import CircuitBackground from "../components/CircuitBackground";
+
 
 const roles = ["Designer", "Developer", "Creative"];
 
@@ -78,6 +80,8 @@ const Hero = () => {
                 paddingTop: "80px",
                 background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)",
             }}>
+
+            <CircuitBackground />
 
             {/* wrapper */}
             <div

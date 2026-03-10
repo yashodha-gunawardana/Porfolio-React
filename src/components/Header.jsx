@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import CircuitBackground from "./CircuitBackground";
 
 const Header = () => {
     const [active, setActive] = useState("HOME");
     const [menuOpen, setMenuOpen] = useState(false);
+    const [onHero, setOnHero] = useState(true);
+    
 
     return (
         <>
-            <style>{`
-                
-            `}</style>
-
             <nav
                 className="fixed top-0 left-0 w-full z-50"
                 style={{ background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)" }}>
+
+                <CircuitBackground />
             
                 {/* ── main row ── */}
                 <div className="flex items-center justify-between px-6 md:px-16 lg:px-50 py-8">
