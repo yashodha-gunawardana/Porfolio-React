@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import CircuitBackground from "./CircuitBackground";
 
@@ -6,7 +6,17 @@ const Header = () => {
     const [active, setActive] = useState("HOME");
     const [menuOpen, setMenuOpen] = useState(false);
     const [onHero, setOnHero] = useState(true);
-    
+
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const hero = document.getElementById("home");
+            if (!hero) return;
+
+            const rect = hero.getBoundingClientRect();
+            setOnHero(rect.bottom > 80);
+        }
+    })
 
     return (
         <>
