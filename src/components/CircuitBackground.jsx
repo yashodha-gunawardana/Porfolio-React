@@ -145,5 +145,11 @@ function CircuitBackground() {
             animId = requestAnimationFrame(draw);
         };
 
-    })
+        draw();
+
+        return () => {
+            cancelAnimationFrame(animId);
+            window.removeEventListener("resize", resize);
+        };
+    }, []);
 }
