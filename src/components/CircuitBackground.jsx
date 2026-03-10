@@ -73,7 +73,7 @@ function CircuitBackground() {
 
         // animation loop
         let frame = 0;
-        let animid;  // stores requestAnimationFrame id
+        let animId;  // stores requestAnimationFrame id
 
         const draw = () => {
 
@@ -89,8 +89,61 @@ function CircuitBackground() {
                 ctx.strokeStyle = "rgba(0,132,255,0.07)";
                 ctx.lineWidth   = 1;
                 ctx.stroke();
-            })
-        }
+
+
+                // travelling signals
+                if (t.active && frame > t.delay) {
+
+                    t.progress += t.speed;
+
+                    // when signal passes the end, reset it and randomly deactivate
+                    if (t.progress > 1.2) {
+                        t.progress = -0.2;
+                        t.active   = Math.random() < 0.6; 
+
+                    }
+
+                    // clamp progress to 0–1 to get the actual position on the trace
+                    const p  = Math.max(0, Math.min(1, t.progress));
+                    const sx = t.x1 + (t.x2 - t.x1) * p; 
+                    const sy = t.y1 + (t.y2 - t.y1) * p; 
+
+                    // radial glow around the signal dot
+                    const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, 10);
+                    grad.addColorStop(0, "rgba(0,132,255,0.5)"); 
+                    grad.addColorStop(1, "rgba(0,132,255,0)");   
+                    ctx.beginPath();
+                    ctx.arc(sx, sy, 10, 0, Math.PI * 2);
+                    ctx.fillStyle = grad;
+                    ctx.fill();
+
+                    // bright signal dot on top of the glow
+                    ctx.beginPath();
+                    ctx.arc(sx, sy, 2, 0, Math.PI * 2);
+                    ctx.fillStyle = "rgba(0,180,255,0.9)";
+                    ctx.fill();
+
+                } else if (!t.active && Math.random() < 0.001) {
+                    // small chance each frame to reactivate an idle trace
+                    t.active   = true;
+                    t.progress = 0;
+                }
+            });
+
+            // draw nodes
+            nodes.forEach(n => {
+                n.pulse += 0.03; 
+                const alpha = 0.15 + Math.sin(n.pulse) * 0.1; 
+
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, 2.5, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0,132,255,${alpha})`;
+                ctx.fill();
+            });
+
+            // schedule the next frame
+            animId = requestAnimationFrame(draw);
+        };
 
     })
 }
