@@ -70,5 +70,17 @@ function CircuitBackground() {
             };
         });
 
+
+        // animation loop
+        let frame = 0;
+        let animid;  // stores requestAnimationFrame id
+
+        const draw = () => {
+
+            // clear the previous frame
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            frame++;
+        }
+
     })
 }
