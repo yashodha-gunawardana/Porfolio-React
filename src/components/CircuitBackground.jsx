@@ -41,7 +41,34 @@ function CircuitBackground() {
                         delay:    Math.random() * 200,     // frame delay before the signal starts
                     });
                 }
+
+                if (r < rows - 1 && Math.random() < 0.35) {
+                    traces.push({
+                        x1: c * GRID, y1: r * GRID,
+                        x2: c * GRID, y2: (r + 1) * GRID,
+                        progress: Math.random(),
+                        speed:    0.002 + Math.random() * 0.003,
+                        active:   Math.random() < 0.4,
+                        delay:    Math.random() * 200,
+                    });
+                }
             }
         }
+
+        // build nodes
+        const nodeSet = new Set();
+        traces.forEach(t => {
+            nodeSet.add(`${t.x1},${t.y1}`);
+            nodeSet.add(`${t.x2},${t.y2}`);
+        });
+
+        const nodes = [...nodeSet].map(k => {
+            const [x, y] = k.split(",").map(Number);
+            return {
+                x, y,
+                pulse: Math.random() * Math.PI * 2, // random starting phase for pulsing animation
+            };
+        });
+
     })
 }
