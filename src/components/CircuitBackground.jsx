@@ -80,6 +80,16 @@ function CircuitBackground() {
             // clear the previous frame
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             frame++;
+
+            // draw traces
+            traces.forEach(t => {
+                ctx.beginPath();
+                ctx.moveTo(t.x1, t.y1);
+                ctx.lineTo(t.x2, t.y2);
+                ctx.strokeStyle = "rgba(0,132,255,0.07)";
+                ctx.lineWidth   = 1;
+                ctx.stroke();
+            })
         }
 
     })
