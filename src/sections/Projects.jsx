@@ -100,7 +100,7 @@ const Projects = () => {
         <section
             id="projects"
             ref={secRef}
-            className="w-full flex flex-col items-center py-30 relative overflow-hidden px-50"
+            className="w-full flex flex-col items-center py-30 relative overflow-hidden px-20"
             style={{ background: "#0A0F1E", minHeight: "100vh" }}>
 
             {/* heading */}

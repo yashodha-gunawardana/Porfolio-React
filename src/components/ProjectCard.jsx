@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 
@@ -8,7 +8,7 @@ const BORDER_BASE  = "rgba(0,132,255,0.2)";
 
 const IMAGE_CONFIG = {
     mobile: { height: "auto", objectFit: "contain", bg: "#0c1220" },
-    web:    { height: "220px", objectFit: "cover",   bg: "transparent" },
+    web: { height: "220px", objectFit: "cover",   bg: "transparent" },
 };
 
 
@@ -130,8 +130,70 @@ function CyclingImage({ images, hovered, type }) {
                 )}
             </div>
         );
-    };
-}
+    }
+
+    {/* web */}
+    return (
+        <div 
+            style={{
+                overflow: "hidden", position: "relative", flexShrink: 0,
+                background: cfg.bg,
+                display: "flex", alignItems: "center", justifyContent: "center",
+            }}>
+
+            <div 
+                style={{
+                    position: "absolute", inset: 0, zIndex: 1,
+                    background: "linear-gradient(to bottom, transparent 50%, rgba(9,13,26,0.7))",
+                }} 
+            />
+
+            <img
+                src={images[imgIndex]}
+                alt="project"
+                draggable={false}
+                style={{
+                    width: "100%",
+                    height: cfg.height,
+                    objectFit: cfg.objectFit,
+                    display: "block",
+                    opacity: fading ? 0 : 1,
+                    transform: hovered ? "scale(1.03)" : "scale(1)",
+                    filter: hovered ? "brightness(1.05)" : "brightness(0.9)",
+                    transition: "transform .5s ease, opacity .3s ease, filter .4s ease",
+                    userSelect: "none", pointerEvents: "none",
+                }}
+
+                onError={e => {
+                    e.target.style.display = "none";
+                    e.target.parentNode.style.background = "linear-gradient(135deg, rgba(0,132,255,0.1), rgba(9,13,26,0.9))";
+                }}
+            />
+
+            {images.length > 1 && (
+                <div 
+                    style={{
+                        position: "absolute", bottom: 10, left: "50%",
+                        transform: "translateX(-50%)",
+                        display: "flex", gap: 5, zIndex: 2,
+                    }}>
+
+                    {images.map((_, i) => (
+                        <div 
+                            key={i} 
+                            style={{
+                                width: i === imgIndex ? 14 : 4, height: 4,
+                                borderRadius: 999,
+                                background: i === imgIndex ? ACCENT : "rgba(255,255,255,0.3)",
+                                transition: "all .3s ease",
+                            }} 
+                        />
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
 
 
 // project card

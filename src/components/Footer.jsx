@@ -1,22 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
-import { FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { FaLinkedinIn, FaGithub, FaFacebook } from "react-icons/fa";
 import { HiArrowUp } from "react-icons/hi";
 
 
 const ACCENT = "#0084FF";
 
 const navLinks = [
-    { label: "Home",      href: "#home"      },
-    { label: "About",     href: "#about"     },
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
     { label: "Education", href: "#education" },
-    { label: "Projects",  href: "#projects"  },
-    { label: "Contact",   href: "#contact"   },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
 ];
 
 const socials = [
-    { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-    { icon: FaGithub,     href: "#", label: "GitHub"   },
-    { icon: FaTwitter,    href: "#", label: "Twitter"  },
+    { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/yashoda-gunawardhana-6302073a8/", label: "LinkedIn" },
+    { icon: FaGithub, href: "https://github.com/yashodha-gunawardana", label: "GitHub" },
+    { icon: FaFacebook, href: "#", label: "GitHub" },
 ];
 
 

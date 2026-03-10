@@ -43,9 +43,9 @@ export const EduIcons = {
 };
 
 export const educations = [
-    { iconKey: "University", name: "IJSE",                       degree: "Software Engineering", year: "2024 – Present", color: "#38bdf8" },
-    { iconKey: "School",     name: "R/Vidyakara Maha Vidyalaya", degree: "Advanced Level",        year: "2019 – 2021",   color: "#818cf8" },
-    { iconKey: "GradCap",    name: "R/Vidyakara Maha Vidyalaya", degree: "Ordinary Level",        year: "2015 – 2019",   color: "#61DAFB" },
+    { iconKey: "University", name: "Institute of Software Enginerring", degree: "Software Engineering", year: "2024 – Present", color: "#38bdf8" },
+    { iconKey: "School", name: "R/Vidyakara Maha Vidyalaya", degree: "Advanced Level", year: "2019 – 2021", color: "#818cf8" },
+    { iconKey: "GradCap", name: "R/Vidyakara Maha Vidyalaya", degree: "Ordinary Level", year: "2008 – 2018", color: "#61DAFB" },
 ];
 
 export const skills = [

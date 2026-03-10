@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HiArrowRight } from "react-icons/hi";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
-import CodeBackground from "../components/CodeBackground";
-
 
 const roles = ["Designer", "Developer", "Creative"];
 
@@ -80,7 +78,6 @@ const Hero = () => {
                 paddingTop: "80px",
                 background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)",
             }}>
-            <CodeBackground />
 
             {/* wrapper */}
             <div
@@ -266,9 +263,9 @@ const Hero = () => {
                         {/* social icons */}
                         <div className="flex items-center gap-3">
                             {[
-                                { icon: <FaFacebookF  size={isMobile ? 12 : 14} />, color: "#0a66c2" },
-                                { icon: <FaGithub     size={isMobile ? 14 : 16} />, color: "#0a66c2" },
-                                { icon: <FaLinkedinIn size={isMobile ? 12 : 14} />, color: "#0a66c2" },
+                                { icon: <FaFacebookF  size={isMobile ? 12 : 14} />, color: "#0a66c2", href: "https://www.linkedin.com/in/yashoda-gunawardhana-6302073a8/" },
+                                { icon: <FaGithub     size={isMobile ? 14 : 16} />, color: "#0a66c2", href: "https://github.com/yashodha-gunawardana" },
+                                { icon: <FaLinkedinIn size={isMobile ? 12 : 14} />, color: "#0a66c2", },
                             ].map(({ icon, color }, i) => (
                                 <button
                                     key={i}

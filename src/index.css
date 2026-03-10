@@ -25,146 +25,84 @@ h1, h2, h3, h4, h5, h6 {
 
 /* mobile menu slide down */
 @keyframes slideDown {
-    from { 
-        opacity: 0; transform: translateY(-10px); 
-    }
-    to { 
-        opacity: 1; transform: translateY(0); 
-    }
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 .mobile-menu { animation: slideDown 0.25s ease both; }
 
 
-/* ------------ hero section ------------ */
-/* typing cursor blink */
+/* ------------ keyframes ------------ */
 @keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
 }
 
-/* slide up + fade in for left side */
 @keyframes fadeUp {
-    from { 
-        opacity: 0; transform: translateY(30px); 
-    }
-    to { 
-        opacity: 1; transform: translateY(0); 
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-/* slide in from right for profile image */
 @keyframes slideInRight {
-    from { 
-        opacity: 0; transform: translateX(60px); 
-    }
-    to { 
-        opacity: 1; transform: translateX(0); 
-    }
+    from { opacity: 0; transform: translateX(60px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
-/* floating orbs */
 @keyframes float {
-    0%,100% { 
-        transform: translateY(0px); 
-    }
-    50% { 
-        transform: translateY(-18px); 
-    }
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-18px); }
 }
+
 @keyframes floatSlow {
-    0%,100% { 
-        transform: translateY(0px) scale(1); 
-    }
-    50% { 
-        transform: translateY(-10px) scale(1.05); 
-    }
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50%       { transform: translateY(-10px) scale(1.05); }
 }
 
-/* ring pulse */
 @keyframes pulseRing {
-    0%,100% { 
-        opacity: 0.15; 
-    }
-    50% { 
-        opacity: 0.4; 
-    }
+    0%, 100% { opacity: 0.15; }
+    50%       { opacity: 0.4; }
 }
 
-/* glow breathe */
 @keyframes glowBreathe {
-    0%,100% { 
-        opacity: 0.5; 
-    }
-    50% { 
-        opacity: 1; 
-    }
-}
-
- /* left side staggered entrance */
-.fade-up-2 { 
-    animation: fadeUp 0.7s 0.1s ease both; 
-}
-.fade-up-3 { 
-    animation: fadeUp 0.7s 0.25s ease both; 
-}
-.fade-up-4 { 
-    animation: fadeUp 0.7s 0.4s ease both; 
-}
-.fade-up-5 { 
-    animation: fadeUp 0.7s 0.55s ease both; 
-}
-
-/* right side slide in */
-.fade-in { 
-    animation: slideInRight 1s 0.3s ease both; 
-}
-
-/* cursor */
-.cursor { 
-    animation: blink 1s step-end infinite; 
-}
-
-/* orbs */
-.orb-1 { 
-    animation: float 5s ease-in-out infinite; 
-}
-.orb-2 { 
-    animation: floatSlow 7s ease-in-out infinite; 
-}
-.orb-3 { 
-    animation: float 6s 1s ease-in-out infinite; 
-}
-
-/* ring + glow */
-.ring-pulse   { 
-    animation: pulseRing   4s ease-in-out infinite; 
-}
-.glow-breathe { 
-    animation: glowBreathe 3s ease-in-out infinite; 
+    0%, 100% { opacity: 0.5; }
+    50%       { opacity: 1; }
 }
 
 
-/* -------------- about section -------------------- */
-.about-fade-1 { 
-    animation: fadeUp 0.7s 0.1s  ease both; 
-}
-.about-fade-2 { 
-    animation: fadeUp 0.7s 0.25s ease both; 
-}
-.about-fade-3 { 
-    animation: fadeUp 0.7s 0.4s  ease both; 
-}
-.about-fade-4 { 
-    animation: fadeUp 0.7s 0.55s ease both; 
-}
-.about-fade-5 { 
-    animation: fadeUp 0.7s 0.7s  ease both; 
+/* ------------ hero section (fires on page load) ------------ */
+.fade-up-2 { animation: fadeUp 0.7s 0.1s  ease both; }
+.fade-up-3 { animation: fadeUp 0.7s 0.25s ease both; }
+.fade-up-4 { animation: fadeUp 0.7s 0.4s  ease both; }
+.fade-up-5 { animation: fadeUp 0.7s 0.55s ease both; }
+
+.fade-in      { animation: slideInRight 1s 0.3s ease-in-out both; }
+.cursor       { animation: blink        1s step-end infinite; }
+.orb-1        { animation: float        5s ease-in-out infinite; }
+.orb-2        { animation: floatSlow    7s ease-in-out infinite; }
+.orb-3        { animation: float        6s 1s ease-in-out infinite; }
+.ring-pulse   { animation: pulseRing    4s ease-in-out infinite; }
+.glow-breathe { animation: glowBreathe  3s ease-in-out infinite; }
+
+
+/* -------------- about section (fires on scroll into view) -------------------- */
+
+/* Hidden by default — stays invisible until IntersectionObserver adds .animate */
+.about-fade-1,
+.about-fade-2,
+.about-fade-3,
+.about-fade-4,
+.about-fade-5 {
+    opacity: 0;
 }
 
+/* Animation plays only after .animate class is added */
+.about-fade-1.animate { animation: fadeUp 0.7s 0.1s  ease both; }
+.about-fade-2.animate { animation: fadeUp 0.7s 0.25s ease both; }
+.about-fade-3.animate { animation: fadeUp 0.7s 0.4s  ease both; }
+.about-fade-4.animate { animation: fadeUp 0.7s 0.55s ease both; }
+.about-fade-5.animate { animation: fadeUp 0.7s 0.7s  ease both; }
+
+
+/* -------------- img bracket corners -------------------- */
 .img-bracket::before, 
 .img-bracket::after {
     content: '';
@@ -174,12 +112,5 @@ h1, h2, h3, h4, h5, h6 {
     border-style: solid;
     z-index: 20;
 }
-                
-.img-bracket::before { 
-    top: -8px; left: -8px; border-width: 3px 0 0 3px; 
-}
-.img-bracket::after { 
-    bottom: -8px; right: -8px; border-width: 0 3px 3px 0; 
-}
-
-
+.img-bracket::before { top: -8px;    left: -8px;  border-width: 3px 0 0 3px; }
+.img-bracket::after  { bottom: -8px; right: -8px; border-width: 0 3px 3px 0; }
