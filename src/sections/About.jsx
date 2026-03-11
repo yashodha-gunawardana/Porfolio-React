@@ -228,7 +228,7 @@ const About = () => {
                         <div className="absolute inset-0" style={{ border: "2px solid #A0AEC0", borderRadius: "4px", zIndex: 0 }} />
                         
                         <img
-                            src="src/assets/profile.png"
+                            src="/projects/profile.png"
                             alt="Yashoda"
                             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", borderRadius: "4px", display: "block" }}
                         />

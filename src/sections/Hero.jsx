@@ -217,7 +217,7 @@ const Hero = () => {
 
                             {/* profile image */}
                             <img
-                                src="src/assets/profile.png"
+                                src="/projects/profile.png"
                                 alt="Yashoda"
                                 style={{
                                     height: "100%", width: "100%",
@@ -374,7 +374,7 @@ const Hero = () => {
 
                     {/* profile image */}
                     <img
-                        src="src/assets/profile.png"
+                        src="/projects/profile.png"
                         alt="Yashoda"
                         style={{
                             height: "100%", width: "100%",
