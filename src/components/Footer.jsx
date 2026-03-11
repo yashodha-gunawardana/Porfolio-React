@@ -16,7 +16,7 @@ const navLinks = [
 const socials = [
     { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/yashoda-gunawardhana-6302073a8/", label: "LinkedIn" },
     { icon: FaGithub, href: "https://github.com/yashodha-gunawardana", label: "GitHub" },
-    { icon: FaFacebook, href: "#", label: "GitHub" },
+    { icon: FaFacebook, href: "#", label: "Facebook" },
 ];
 
 
@@ -198,13 +198,13 @@ const Footer = () => {
 
                         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                             {[
-                                { label: "yashodagunawardhan15@gmail.com" },
+                                { label: "yashodagunawardhana15@gmail.com" },
                                 { label: "+94 77 123 4567" },
                                 { label: "Ratnapura, Sri Lanka" },
 
                             ].map(({ label }) => (
 
-                                <span key={label} style={{
+                                <span key={`footer-contact-${label}`} style={{
                                     fontSize: 13, color: "#475569", lineHeight: 1.5,
                                 }}>
 

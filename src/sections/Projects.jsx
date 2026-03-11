@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { projects } from "../data/projectsDetails";
 import ProjectCard from "../components/ProjectCard";
-
+import CursorGridBackground from "../components/CursorGridBackground";
 
 // constant
 const ACCENT = "#0084FF";
@@ -100,8 +100,29 @@ const Projects = () => {
         <section
             id="projects"
             ref={secRef}
-            className="w-full flex flex-col items-center py-30 relative overflow-hidden px-20"
+            className="w-full flex flex-col items-center py-30 relative overflow-hidden px-15"
             style={{ background: "#0A0F1E", minHeight: "100vh" }}>
+            
+            {/* fine dot grid */}
+            <div 
+                style={{
+                    position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",
+                    backgroundImage: "radial-gradient(rgba(0,132,255,0.07) 1px, transparent 1px)",
+                    backgroundSize: "28px 28px",
+                }} 
+            />
+
+            <CursorGridBackground />
+
+            {/* top edge glow line */}
+            <div 
+                style={{
+                    position: "absolute", top: 0, left: "15%",
+                    width: "70%", height: "1px",
+                    background: "linear-gradient(to right, transparent, rgba(0,132,255,0.25), transparent)",
+                    zIndex: 0,
+                }} 
+            />
 
             {/* heading */}
             <div 

@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import CircuitBackground from "./CircuitBackground";
 
+
+const HEADER_HEIGHT = 80;
+
 const Header = () => {
     const [active, setActive] = useState("HOME");
     const [menuOpen, setMenuOpen] = useState(false);
@@ -14,9 +17,25 @@ const Header = () => {
             if (!hero) return;
 
             const rect = hero.getBoundingClientRect();
-            setOnHero(rect.bottom > 80);
-        }
-    })
+            setOnHero(rect.bottom > 80);  // header height
+        };
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+
+    }, []);
+
+
+    const scrollToSection = (id, label) => {
+        setActive(label);
+        setMenuOpen(false);
+
+        setTimeout(() => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const top = el.getBoundingClientRect().top + window.scrollY - HEADER_HEIGHT;
+            window.scrollTo({ top, behavior: "smooth" });
+        }, 200);
+    };
 
     return (
         <>
@@ -24,9 +43,9 @@ const Header = () => {
                 className="fixed top-0 left-0 w-full z-50"
                 style={{ background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)" }}>
 
-                <CircuitBackground />
+                {onHero && <CircuitBackground />}
             
-                {/* ── main row ── */}
+                {/* main row */}
                 <div className="flex items-center justify-between px-6 md:px-16 lg:px-50 py-8">
 
                     {/* logo */}
@@ -44,7 +63,7 @@ const Header = () => {
                             <a
                                 key={link}
                                 href={`#${link.toLowerCase()}`}
-                                onClick={() => setActive(link)}
+                                onClick={(e) => { e.preventDefault(); scrollToSection(link.toLowerCase(), link); }}
                                 className={`nav-link text-xs font-semibold tracking-widest transition-colors duration-200 ${
                                     active === link ? "active text-white" : "text-gray-400 hover:text-white"
                                 }`}>
@@ -57,7 +76,9 @@ const Header = () => {
                             className="px-5 py-2 rounded-full text-xs font-bold tracking-wider text-white transition-all duration-300 hover:-translate-y-0.5"
                             style={{ background: "#0084FF", boxShadow: "0 0 20px rgba(0,132,255,0.4)" }}
                             onMouseEnter={e => e.currentTarget.style.boxShadow = "0 0 30px rgba(0,132,255,0.7)"}
-                            onMouseLeave={e => e.currentTarget.style.boxShadow = "0 0 20px rgba(0,132,255,0.4)"}>
+                            onMouseLeave={e => e.currentTarget.style.boxShadow = "0 0 20px rgba(0,132,255,0.4)"}
+                                                        onClick={() => scrollToSection("contact", "CONTACT")}>
+
                         
                             LET'S TALK
                         </button>
@@ -75,7 +96,7 @@ const Header = () => {
                     </button>
                 </div>
 
-                {/* ── mobile menu ── */}
+                {/* mobile menu */}
                 {menuOpen && (
                     <div
                         className="mobile-menu md:hidden flex flex-col px-6 pb-6 gap-5 border-t"
@@ -88,7 +109,7 @@ const Header = () => {
                             <a
                                 key={link}
                                 href={`#${link.toLowerCase()}`}
-                                onClick={() => { setActive(link); setMenuOpen(false); }}
+                                onClick={(e) => { e.preventDefault(); scrollToSection(link.toLowerCase(), link); }}
                                 className={`text-xs font-semibold tracking-widest transition-colors duration-200 pt-4 ${
                                     active === link ? "text-white" : "text-gray-400"
                                 }`}
@@ -99,7 +120,8 @@ const Header = () => {
 
                         <button
                             className="w-full px-5 py-2.5 rounded-full text-xs font-bold tracking-wider text-white mt-2"
-                            style={{ background: "#0084FF", boxShadow: "0 0 20px rgba(0,132,255,0.4)" }}>
+                            style={{ background: "#0084FF", boxShadow: "0 0 20px rgba(0,132,255,0.4)" }}
+                            onClick={() => scrollToSection("contact", "CONTACT")}>
                         
                             LET'S TALK
                         </button>

@@ -257,9 +257,15 @@ const Hero = () => {
                             style={{
                                 background: "#0084FF",
                                 fontSize: isMobile ? "0.75rem" : "0.875rem",
+                            }}
+                            onClick={() => {
+                                const el = document.getElementById("about");
+                                if (!el) return;
+                                const top = el.getBoundingClientRect().top + window.scrollY - 80;
+                                window.scrollTo({ top, behavior: "smooth" });
                             }}>
 
-                            GET IN TOUCH
+                            LEARN MORE
 
                             <HiArrowRight size={14} />
                         </button>
@@ -267,9 +273,9 @@ const Hero = () => {
                         {/* social icons */}
                         <div className="flex items-center gap-3">
                             {[
-                                { icon: <FaFacebookF  size={isMobile ? 12 : 14} />, color: "#0a66c2", href: "https://www.linkedin.com/in/yashoda-gunawardhana-6302073a8/" },
+                                { icon: <FaFacebookF  size={isMobile ? 12 : 14} />, color: "#1877F2", href: "#" },
                                 { icon: <FaGithub     size={isMobile ? 14 : 16} />, color: "#0a66c2", href: "https://github.com/yashodha-gunawardana" },
-                                { icon: <FaLinkedinIn size={isMobile ? 12 : 14} />, color: "#0a66c2", },
+                                { icon: <FaLinkedinIn size={isMobile ? 12 : 14} />, color: "#0a66c2", href: "https://www.linkedin.com/in/yashoda-gunawardhana-6302073a8/" },
                             ].map(({ icon, color }, i) => (
                                 <button
                                     key={i}

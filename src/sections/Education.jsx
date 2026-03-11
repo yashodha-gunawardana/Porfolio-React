@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import CodeBackground from "../components/CodeBackground";
 import { Icons, EduIcons, educations, skills } from "../data/educationSkills";
+import CursorGridBackground from "../components/CursorGridBackground";
+
 
 // responsive hook
 function useWindowWidth() {
@@ -210,7 +211,27 @@ const Education = () => {
                 background: "linear-gradient(to right, #112240, #0F1628, #0A0F1E, #090D1A)",
                 ...(isStacked && { paddingLeft: sectionPadding, paddingRight: sectionPadding }),
             }}>
-            <CodeBackground />
+
+            {/* fine dot grid */}
+            <div 
+                style={{
+                    position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",
+                    backgroundImage: "radial-gradient(rgba(0,132,255,0.07) 1px, transparent 1px)",
+                    backgroundSize: "28px 28px",
+                }} 
+            />
+
+            <CursorGridBackground />
+
+            {/* top edge glow line */}
+            <div 
+                style={{
+                    position: "absolute", top: 0, left: "15%",
+                    width: "70%", height: "1px",
+                    background: "linear-gradient(to right, transparent, rgba(0,132,255,0.25), transparent)",
+                    zIndex: 0,
+                }} 
+            />
 
             {/* heading */}
             <div 
