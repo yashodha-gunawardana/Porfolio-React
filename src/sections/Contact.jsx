@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaLinkedinIn, FaGithub, FaPaperPlane, FaFacebook, FaReact, FaNodeJs, FaDocker, FaJava, FaFigma, FaPython } from "react-icons/fa";
-import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
+import { HiMail, HiLocationMarker } from "react-icons/hi";
 import { SiTypescript, SiMongodb, SiTailwindcss, SiSpringboot, SiMysql, SiFirebase } from "react-icons/si";
 import emailjs from "@emailjs/browser";
 
@@ -32,7 +32,6 @@ const ACCENT = "#0084FF";
 
 const contactInfo = [
     { icon: HiMail, label: "Email", value: "yashodagunawardhana15@gmail.com" },
-    { icon: HiPhone, label: "Phone", value: "+94 77 123 4567" },
     { icon: HiLocationMarker, label: "Location", value: "Ratnapura, Sri Lanka" },
 ];
 

@@ -199,7 +199,6 @@ const Footer = () => {
                         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                             {[
                                 { label: "yashodagunawardhana15@gmail.com" },
-                                { label: "+94 77 123 4567" },
                                 { label: "Ratnapura, Sri Lanka" },
 
                             ].map(({ label }) => (
